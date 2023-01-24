@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import DynamicPosts from "../DynamicPosts/DynamicPosts";
+import React, { useState } from 'react';
+import DynamicPosts from '../DynamicPosts/DynamicPosts';
 
-import "./Banner.css";
+import './Banner.css';
 
 function Banner() {
   let [category, setCategory] = useState();
-  
+
   return (
     <div className="bannerParentDiv">
       <div className="bannerChildDiv">
@@ -17,30 +17,56 @@ function Banner() {
                 setCategory(e.target.value);
               }}
             >
-              {" "}
+              {' '}
               <option value="null">ALL CATEGORIES</option>
-              <option value="Cars">Cars</option>
-              <option value="Cameras & Lenses">Cameras & Lenses</option>
-              <option value="Computers & Laptops">Computers & Laptops</option>
-              <option value="Mobile Phones">Mobile Phones</option>
-              <option value="Motorcycles">Motorcycles</option>
-              <option value="Tablets">Tablets</option>
+              <option value="Mattress">Mattress</option>
+              <option value="Tubelight & LED">Tubelight & LED</option>
+              <option value="Table Lamp">Table Lamp</option>
+              <option value="Cooler">Cooler</option>
+              <option value="Heater">Heater</option>
+              <option value="Electric Kettle">Electric Kettle</option>
+              <option value="Blankets">Blankets</option>
+              <option value="Umbrella">Umbrella</option>
+              <option value="Induction">Induction</option>
+              <option value="Extension Cord">Extension Cord</option>
+              <option value="Router">Router</option>
+              <option value="Heating Rod">Heating Rod</option>
+              <option value="Mosquito Racket">Mosquito Racket</option>
+              <option value="Mosquito Net">Mosquito Net</option>
             </select>
           </div>
           <div className="otherQuickOptions">
-            <span onClick={()=>setCategory("Cars")} >Cars</span>
-            <span onClick={()=>setCategory("Cameras & Lenses")} >Cameras & Lenses</span>
-            <span onClick={()=>setCategory("Computers & Laptops")} >Computers & Laptops</span>
-            <span onClick={()=>setCategory("Mobile Phones")} >Mobile Phones</span>
-            <span onClick={()=>setCategory("Motorcycles")} >Motorcycles</span>
-            <span onClick={()=>setCategory("Tablets")} >Tablets</span>
+            <span onClick={() => setCategory('Mattress')}>Mattress</span>
+            {/* <span onClick={() => setCategory('Tubelight & LED')}>
+              Tubelight & LED
+            </span> */}
+            <span onClick={() => setCategory('Table Lamp')}>Table Lamp</span>
+            <span onClick={() => setCategory('Cooler')}>Cooler</span>
+            <span onClick={() => setCategory('Heater')}>Heater</span>
+            {/* <span onClick={() => setCategory('Electric Kettle')}>
+              Electric Kettle
+            </span> */}
+            {/* <span onClick={() => setCategory('Blankets')}>Blankets</span>
+            <span onClick={() => setCategory('Umbrella')}>Umbrella</span> */}
+            <span onClick={() => setCategory('Induction')}>Induction</span>
+            <span onClick={() => setCategory('Extension Cord')}>
+              Extension Cord
+            </span>
+            {/* <span onClick={() => setCategory('Router')}>Router</span> */}
+            <span onClick={() => setCategory('Heating Rod')}>Heating Rod</span>
+            <span onClick={() => setCategory('Mosquito Racket')}>
+              Mosquito Racket
+            </span>
+            {/* <span onClick={() => setCategory('Mosquito Net')}>
+              Mosquito Net
+            </span> */}
           </div>
         </div>
         <div className="banner">
           <img src="../../../Images/banner copy.png" alt="" />
         </div>
       </div>
-     { category!=null && <DynamicPosts category={category}/>  }
+      {category != null && <DynamicPosts category={category} />}
     </div>
   );
 }

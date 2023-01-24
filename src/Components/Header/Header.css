@@ -1,5 +1,5 @@
 .headerParentDiv {
-  padding: 10px;
+  padding: 0.6rem 2rem;
   background-color: whitesmoke;
   position: fixed;
   width: 100vw;
@@ -95,7 +95,6 @@
   margin-right: 5px;
 }
 
-
 .span {
   text-decoration: none;
   font-size: 16px;
@@ -112,7 +111,7 @@
   height: 2px;
 }
 
-.loginPage a{
+.loginPage a {
   text-decoration: none;
 }
 
@@ -157,46 +156,43 @@
 
 @media only screen and (max-width: 700px) {
   .placeSearch,
-  .productSearch{
+  .productSearch {
     display: none;
   }
 }
-.logout-span{
+.logout-span {
   cursor: pointer;
 }
 
 .dataResult-header {
-    
   position: absolute;
   top: 60px;
   left: 85px;
-   width: 16em;
-   height: 150px;
-   background-color: white;
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   overflow: hidden;
-   overflow-y: auto;
- }
- 
- /* .dataResult-header::-webkit-scrollbar {
+  width: 16em;
+  height: 150px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/* .dataResult-header::-webkit-scrollbar {
    display: none;
  } */
- 
- .dataResult-header .dataItem-header {
-   width: 100%;
-   height: 30px;
-   display: flex;
-   align-items: center;
-   color: black;
-   font-size: smaller;
- }
- 
- .dataItem-header p {
-   margin-left: 10px;
- }
 
- 
- .dataResult-header  :hover {
-   background-color: #ebeeef;
- }
- 
+.dataResult-header .dataItem-header {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: smaller;
+}
+
+.dataItem-header p {
+  margin-left: 10px;
+}
+
+.dataResult-header :hover {
+  background-color: #ebeeef;
+}

@@ -1,29 +1,36 @@
-import React, { Fragment, useState, useContext } from "react";
-import "./Create.css";
-import Header from "../Header/Header";
-import { Firebase } from "../../firebase/config";
-import { AuthContext } from "../../contextStore/AuthContext";
-import { useHistory } from "react-router";
-import GoLoading from "../Loading/GoLoading";
+import React, { Fragment, useState, useContext } from 'react';
+import './Create.css';
+import Header from '../Header/Header';
+import { Firebase } from '../../firebase/config';
+import { AuthContext } from '../../contextStore/AuthContext';
+import { useHistory } from 'react-router';
+import GoLoading from '../Loading/GoLoading';
 const Create = () => {
   const { user } = useContext(AuthContext);
   const history = useHistory();
-  let [name, setName] = useState("");
-  let [category, setCategory] = useState("");
-  let [price, setPrice] = useState("");
-  let [description, setDescription] = useState("");
+  let [name, setName] = useState('');
+  let [category, setCategory] = useState('');
+  let [price, setPrice] = useState('');
+  let [description, setDescription] = useState('');
   let [image, setImage] = useState();
-  let [loading,setLoading]=useState(false);
+  let [loading, setLoading] = useState(false);
+
   const handleSubmit = () => {
     setLoading(true);
-    let date = new Date().toDateString();
+    let date = new Date();
+    let now = new Date();
+    date.setYear(now.getFullYear() - 1);
+    date.setMonth(now.getMonth() + 5);
+    date.setDate(1 + Math.random() * 29);
+    date = date.toDateString();
+
     Firebase.storage()
       .ref(`/image/${image.name}`)
       .put(image)
       .then(({ ref }) => {
         ref.getDownloadURL().then((url) => {
           Firebase.firestore()
-            .collection("products")
+            .collection('products')
             .add({
               name,
               category,
@@ -34,7 +41,7 @@ const Create = () => {
               createdAt: date,
             })
             .then(() => {
-              history.push("/");
+              history.push('/');
             });
         });
       });
@@ -42,7 +49,7 @@ const Create = () => {
   return (
     <Fragment>
       <Header />
-    { loading && <GoLoading/> }
+      {loading && <GoLoading />}
       <div className="centerDiv">
         <label>Name</label>
         <br />
@@ -63,13 +70,23 @@ const Create = () => {
             setCategory(e.target.value);
           }}
           className="input"
-        > <option >Select Category</option>
-          <option value="Cars">Cars</option>
-          <option value="Cameras & Lenses">Cameras & Lenses</option>
-          <option value="Computers & Laptops">Computers & Laptops</option>
-          <option value="Mobile Phones">Mobile Phones</option>
-          <option value="Motorcycles">Motorcycles</option>
-          <option value="Tablets">Tablets</option>
+        >
+          {' '}
+          <option>Select Category</option>
+          <option value="Mattress">Mattress</option>
+          <option value="Tubelight & LED">Tubelight & LED</option>
+          <option value="Table Lamp">Table Lamp</option>
+          <option value="Cooler">Cooler</option>
+          <option value="Heater">Heater</option>
+          <option value="Electric Kettle">Electric Kettle</option>
+          <option value="Blankets">Blankets</option>
+          <option value="Umbrella">Umbrella</option>
+          <option value="Induction">Induction</option>
+          <option value="Extension Cord">Extension Cord</option>
+          <option value="Router">Router</option>
+          <option value="Heating Rod">Heating Rod</option>
+          <option value="Mosquito Racket">Mosquito Racket</option>
+          <option value="Mosquito Net">Mosquito Net</option>
         </select>
         <br />
         <label>Price</label>
@@ -102,7 +119,7 @@ const Create = () => {
           alt="Posts"
           width="200px"
           height="200px"
-          src={image ? URL.createObjectURL(image) : ""}
+          src={image ? URL.createObjectURL(image) : ''}
         ></img>
 
         <br />
@@ -116,7 +133,7 @@ const Create = () => {
         <button className="uploadBtn" onClick={handleSubmit}>
           upload and Submit
         </button>
-      </div> 
+      </div>
     </Fragment>
   );
 };
