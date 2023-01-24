@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DynamicPosts from '../DynamicPosts/DynamicPosts';
+import bannerimg from './banner.png';
 
 import './Banner.css';
 
@@ -63,7 +64,7 @@ function Banner() {
           </div>
         </div>
         <div className="banner">
-          <img src="../../../Images/banner copy.png" alt="" />
+          <img src={bannerimg} alt="" />
         </div>
       </div>
       {category != null && <DynamicPosts category={category} />}

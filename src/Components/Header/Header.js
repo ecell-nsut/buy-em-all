@@ -4,6 +4,7 @@ import { AllPostContext } from '../../contextStore/AllPostContext';
 import { PostContext } from '../../contextStore/PostContext';
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
+import logo from './logo.png';
 import SearchIcon from '../../assets/SearchIcon';
 import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
@@ -57,7 +58,8 @@ function Header() {
       <div className="headerChildDiv">
         <div className="brandName">
           <Link to="/">
-            <OlxLogo></OlxLogo>
+            {/* <OlxLogo></OlxLogo> */}
+            <img src={logo} alt="" />
           </Link>
         </div>
         <div className="placeSearch">
